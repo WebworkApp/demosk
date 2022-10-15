@@ -11,7 +11,7 @@ volumes:
 
 networks:
   test:
-    name: fabric_test
+    name: fabric_demosk
 
 services:
 
