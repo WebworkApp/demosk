@@ -19,6 +19,7 @@
 
 #ROOTDIR=$(cd "$(dirname "$0")" && pwd)
 ROOTDIR="/mnt/c/Users/nunor/Go/src/github.com/WebworkApp/demosk/network"
+
 export PATH=${ROOTDIR}/../bin:${PWD}/../bin:$PATH
 export FABRIC_CFG_PATH=${PWD}/configtx
 export VERBOSE=false
