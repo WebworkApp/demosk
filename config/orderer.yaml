@@ -332,32 +332,6 @@ Operations:
 
 ################################################################################
 #
-#   Metrics Configuration
-#
-#   - This configures metrics collection for the orderer
-#
-################################################################################
-Metrics:
-    # The metrics provider is one of statsd, prometheus, or disabled
-    Provider: disabled
-
-    # The statsd configuration
-    Statsd:
-      # network type: tcp or udp
-      Network: udp
-
-      # the statsd server address
-      Address: 127.0.0.1:8125
-
-      # The interval at which locally cached counters and gauges are pushed
-      # to statsd; timings are pushed immediately
-      WriteInterval: 30s
-
-      # The prefix is prepended to all emitted statsd metrics
-      Prefix:
-
-################################################################################
-#
 #   Admin Configuration
 #
 #   - This configures the admin server endpoint for the orderer
