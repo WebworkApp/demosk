@@ -14,7 +14,7 @@
 ################################################################################
 Organizations:
 
-    # SampleOrg defines an MSP using the sampleconfig.  It should never be used
+    # DemoskOrg defines an MSP using the sampleconfig.  It should never be used
     # in production but may be used as a template for other definitions
     - &OrdererOrg
         # DefaultOrg defines the organization which is used in the sampleconfig
