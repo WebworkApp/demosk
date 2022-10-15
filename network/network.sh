@@ -151,10 +151,10 @@ function createOrgs() {
     fi
     infoln "Generating certificates using cryptogen tool"
 
-    infoln "Creating Org1 Identities"
+    infoln "Creating orgpt Identities"
 
     set -x
-    cryptogen generate --config=./organizations/cryptogen/crypto-config-org1.yaml --output="organizations"
+    cryptogen generate --config=./organizations/cryptogen/crypto-config-orgpt.yaml --output="organizations"
     res=$?
     { set +x; } 2>/dev/null
     if [ $res -ne 0 ]; then
@@ -182,16 +182,16 @@ function createOrgs() {
 
     while :
     do
-      if [ ! -f "organizations/fabric-ca/org1/tls-cert.pem" ]; then
+      if [ ! -f "organizations/fabric-ca/orgpt/tls-cert.pem" ]; then
         sleep 1
       else
         break
       fi
     done
 
-    infoln "Creating Org1 Identities"
+    infoln "Creating orgpt Identities"
 
-    createOrg1
+    createOrgpt
 
     infoln "Creating Orderer Org Identities"
 
@@ -199,7 +199,7 @@ function createOrgs() {
 
   fi
 
-  infoln "Generating CCP files for Org1"
+  infoln "Generating CCP files for orgpt"
   ./organizations/ccp-generate.sh
 }
 
@@ -252,7 +252,7 @@ function networkUp() {
   fi
 }
 
-# call the script to create the channel, join the peers of org1,
+# call the script to create the channel, join the peers of orgpt,
 # and then update the anchor peers for each organization
 function createChannel() {
   # Bring up the network if it is not already up.
@@ -313,7 +313,7 @@ function networkDown() {
   # Don't remove the generated artifacts -- note, the ledgers are always removed
   if [ "$MODE" != "restart" ]; then
     # Bring down the network, deleting the volumes
-    ${CONTAINER_CLI} volume rm docker_orderer.demosk.org docker_peer0.org1.demosk.org
+    ${CONTAINER_CLI} volume rm docker_orderer.demosk.org docker_peer0.orgpt.demosk.org
     #Cleanup the chaincode containers
     clearContainers
     #Cleanup images
@@ -323,7 +323,7 @@ function networkDown() {
     # remove orderer block and other channel configuration transactions and certs
     ${CONTAINER_CLI} run --rm -v "$(pwd):/data" busybox sh -c 'cd /data && rm -rf system-genesis-block/*.block organizations/peerOrganizations organizations/ordererOrganizations'
     ## remove fabric ca artifacts
-    ${CONTAINER_CLI} run --rm -v "$(pwd):/data" busybox sh -c 'cd /data && rm -rf organizations/fabric-ca/org1/msp organizations/fabric-ca/org1/tls-cert.pem organizations/fabric-ca/org1/ca-cert.pem organizations/fabric-ca/org1/IssuerPublicKey organizations/fabric-ca/org1/IssuerRevocationPublicKey organizations/fabric-ca/org1/fabric-ca-server.db'
+    ${CONTAINER_CLI} run --rm -v "$(pwd):/data" busybox sh -c 'cd /data && rm -rf organizations/fabric-ca/orgpt/msp organizations/fabric-ca/orgpt/tls-cert.pem organizations/fabric-ca/orgpt/ca-cert.pem organizations/fabric-ca/orgpt/IssuerPublicKey organizations/fabric-ca/orgpt/IssuerRevocationPublicKey organizations/fabric-ca/orgpt/fabric-ca-server.db'
     ${CONTAINER_CLI} run --rm -v "$(pwd):/data" busybox sh -c 'cd /data && rm -rf organizations/fabric-ca/ordererOrg/msp organizations/fabric-ca/ordererOrg/tls-cert.pem organizations/fabric-ca/ordererOrg/ca-cert.pem organizations/fabric-ca/ordererOrg/IssuerPublicKey organizations/fabric-ca/ordererOrg/IssuerRevocationPublicKey organizations/fabric-ca/ordererOrg/fabric-ca-server.db'
     # remove channel and script artifacts
     ${CONTAINER_CLI} run --rm -v "$(pwd):/data" busybox sh -c 'cd /data && rm -rf channel-artifacts log.txt *.tar.gz'

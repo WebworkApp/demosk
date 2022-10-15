@@ -57,7 +57,7 @@ function printHelp() {
     println "    -ccv <version>  - Chaincode version. 1.0 (default), v2, version3.x, etc"
     println "    -ccs <sequence>  - Chaincode definition sequence. Must be an integer, 1 (default), 2, 3, etc"
     println "    -ccp <path>  - File path to the chaincode."
-    println "    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from Org1"
+    println "    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from orgpt"
     println "    -cccg <collection-config>  - (Optional) File path to private data collections configuration file"
     println "    -cci <fcn name>  - (Optional) Name of chaincode initialization function. When a function is provided, the execution of init will be requested and the function will be invoked."
     println
@@ -79,7 +79,7 @@ function printHelp() {
     println "    -ccv <version>  - Chaincode version. 1.0 (default), v2, version3.x, etc"
     println "    -ccs <sequence>  - Chaincode definition sequence. Must be an integer, 1 (default), 2, 3, etc"
     println "    -ccp <path>  - File path to the chaincode. (used to find the dockerfile for building the docker image only)"
-    println "    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from Org1"
+    println "    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from orgpt"
     println "    -cccg <collection-config>  - (Optional) File path to private data collections configuration file"
     println "    -cci <fcn name>  - (Optional) Name of chaincode initialization function. When a function is provided, the execution of init will be requested and the function will be invoked."
     println "    -ccaasdocker <true|false>  - (Optional) Default is true; the chaincode docker image will be built and containers started automatically. Set to false to control this manually"
@@ -118,7 +118,7 @@ function printHelp() {
     println "    -ccv <version>  - Chaincode version. 1.0 (default), v2, version3.x, etc"
     println "    -ccs <sequence>  - Chaincode definition sequence. Must be an integer, 1 (default), 2, 3, etc"
     println "    -ccp <path>  - File path to the chaincode."
-    println "    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from Org1"
+    println "    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from orgpt"
     println "    -cccg <collection-config>  - (Optional) File path to private data collections configuration file"
     println "    -cci <fcn name>  - (Optional) Name of chaincode initialization function. When a function is provided, the execution of init will be requested and the function will be invoked."
     println

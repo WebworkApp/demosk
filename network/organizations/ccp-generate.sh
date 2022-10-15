@@ -29,8 +29,8 @@ function yaml_ccp {
 ORG=1
 P0PORT=7051
 CAPORT=7054
-PEERPEM=organizations/peerOrganizations/org1.demosk.org/tlsca/tlsca.org1.demosk.org-cert.pem
-CAPEM=organizations/peerOrganizations/org1.demosk.org/ca/ca.org1.demosk.org-cert.pem
+PEERPEM=organizations/peerOrganizations/orgpt.demosk.org/tlsca/tlsca.orgpt.demosk.org-cert.pem
+CAPEM=organizations/peerOrganizations/orgpt.demosk.org/ca/ca.orgpt.demosk.org-cert.pem
 
-echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.demosk.org/connection-org1.json
-echo "$(yaml_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.demosk.org/connection-org1.yaml
+echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/orgpt.demosk.org/connection-orgpt.json
+echo "$(yaml_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/orgpt.demosk.org/connection-orgpt.yaml

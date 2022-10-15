@@ -124,14 +124,14 @@ packageChaincode() {
 ## package the chaincode
 packageChaincode
 
-## Install chaincode on peer0.org1
-infoln "Installing chaincode on peer0.org1..."
+## Install chaincode on peer0.orgpt
+infoln "Installing chaincode on peer0.orgpt..."
 installChaincode 1
 
 ## query whether the chaincode is installed
 queryInstalled 1
 
-## approve the definition for org1
+## approve the definition for orgpt
 approveForMyOrg 1
 
 ## now that we know for sure both orgs have approved, commit the definition

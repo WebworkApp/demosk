@@ -7,7 +7,7 @@ version: '3.7'
 
 volumes:
   orderer.demosk.org:
-  peer0.org1.demosk.org:
+  peer0.orgpt.demosk.org:
 
 networks:
   test:
@@ -56,8 +56,8 @@ services:
     networks:
       - test
 
-  peer0.org1.demosk.org:
-    container_name: peer0.org1.demosk.org
+  peer0.orgpt.demosk.org:
+    container_name: peer0.orgpt.demosk.org
     image: hyperledger/fabric-peer:latest
     labels:
       service: hyperledger-fabric
@@ -71,21 +71,21 @@ services:
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
       # Peer specific variables
-      - CORE_PEER_ID=peer0.org1.demosk.org
-      - CORE_PEER_ADDRESS=peer0.org1.demosk.org:7051
+      - CORE_PEER_ID=peer0.orgpt.demosk.org
+      - CORE_PEER_ADDRESS=peer0.orgpt.demosk.org:7051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.org1.demosk.org:7052
+      - CORE_PEER_CHAINCODEADDRESS=peer0.orgpt.demosk.org:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.demosk.org:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.demosk.org:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.orgpt.demosk.org:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.orgpt.demosk.org:7051
+      - CORE_PEER_LOCALMSPID=OrgptMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
-      - CORE_OPERATIONS_LISTENADDRESS=peer0.org1.demosk.org:9444
-      - CHAINCODE_AS_A_SERVICE_BUILDER_CONFIG={"peername":"peer0org1"}
+      - CORE_OPERATIONS_LISTENADDRESS=peer0.orgpt.demosk.org:9444
+      - CHAINCODE_AS_A_SERVICE_BUILDER_CONFIG={"peername":"peer0orgpt"}
       - CORE_CHAINCODE_EXECUTETIMEOUT=300s
     volumes:
-        - ../organizations/peerOrganizations/org1.demosk.org/peers/peer0.org1.demosk.org:/etc/hyperledger/fabric
-        - peer0.org1.demosk.org:/var/hyperledger/production
+        - ../organizations/peerOrganizations/orgpt.demosk.org/peers/peer0.orgpt.demosk.org:/etc/hyperledger/fabric
+        - peer0.orgpt.demosk.org:/var/hyperledger/production
     working_dir: /root
     command: peer node start
     ports:
@@ -112,6 +112,6 @@ services:
         - ../organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations
         - ../scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
     depends_on:
-      - peer0.org1.demosk.org
+      - peer0.orgpt.demosk.org
     networks:
       - test

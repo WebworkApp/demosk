@@ -4,7 +4,7 @@
 /ledgers-backup
 /channel-artifacts/*.json
 organizations/fabric-ca/ordererOrg/*
-organizations/fabric-ca/org1/*
+organizations/fabric-ca/orgpt/*
 organizations/ordererOrganizations/*
 organizations/peerOrganizations/*
 system-genesis-block/*

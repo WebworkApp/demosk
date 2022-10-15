@@ -5,8 +5,8 @@
 
 version: '3.7'
 services:
-  peer0.org1.demosk.org:
-    container_name: peer0.org1.demosk.org
+  peer0.orgpt.demosk.org:
+    container_name: peer0.orgpt.demosk.org
     image: hyperledger/fabric-peer:latest
     labels:
       service: hyperledger-fabric

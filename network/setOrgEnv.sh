@@ -5,8 +5,8 @@
 
 
 
-# default to using Org1
-ORG=${1:-Org1}
+# default to using orgpt
+ORG=${1:-orgpt}
 
 # Exit on first error, print all commands.
 set -e
@@ -16,20 +16,20 @@ set -o pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
 ORDERER_CA=${DIR}/test-network/organizations/ordererOrganizations/demosk.org/tlsca/tlsca.demosk.org-cert.pem
-PEER0_ORG1_CA=${DIR}/test-network/organizations/peerOrganizations/org1.demosk.org/tlsca/tlsca.org1.demosk.org-cert.pem
+PEER0_ORGPT_CA=${DIR}/test-network/organizations/peerOrganizations/orgpt.demosk.org/tlsca/tlsca.orgpt.demosk.org-cert.pem
 
-if [[ ${ORG,,} == "org1" || ${ORG,,} == "digibank" ]]; then
+if [[ ${ORG,,} == "orgpt" || ${ORG,,} == "digibank" ]]; then
 
-   CORE_PEER_LOCALMSPID=Org1MSP
-   CORE_PEER_MSPCONFIGPATH=${DIR}/test-network/organizations/peerOrganizations/org1.demosk.org/users/Admin@org1.demosk.org/msp
+   CORE_PEER_LOCALMSPID=OrgptMSP
+   CORE_PEER_MSPCONFIGPATH=${DIR}/test-network/organizations/peerOrganizations/orgpt.demosk.org/users/Admin@orgpt.demosk.org/msp
    CORE_PEER_ADDRESS=localhost:7051
-   CORE_PEER_TLS_ROOTCERT_FILE=${DIR}/test-network/organizations/peerOrganizations/org1.demosk.org/tlsca/tlsca.org1.demosk.org-cert.pem
+   CORE_PEER_TLS_ROOTCERT_FILE=${DIR}/test-network/organizations/peerOrganizations/orgpt.demosk.org/tlsca/tlsca.orgpt.demosk.org-cert.pem
 fi
 
 # output the variables that need to be set
 echo "CORE_PEER_TLS_ENABLED=true"
 echo "ORDERER_CA=${ORDERER_CA}"
-echo "PEER0_ORG1_CA=${PEER0_ORG1_CA}"
+echo "PEER0_ORGPT_CA=${PEER0_ORGPT_CA}"
 
 echo "CORE_PEER_MSPCONFIGPATH=${CORE_PEER_MSPCONFIGPATH}"
 echo "CORE_PEER_ADDRESS=${CORE_PEER_ADDRESS}"

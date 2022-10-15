@@ -12,7 +12,7 @@
 
 export CORE_PEER_TLS_ENABLED=true
 export ORDERER_CA=${PWD}/organizations/ordererOrganizations/demosk.org/tlsca/tlsca.demosk.org-cert.pem
-export PEER0_ORG1_CA=${PWD}/organizations/peerOrganizations/org1.demosk.org/tlsca/tlsca.org1.demosk.org-cert.pem
+export PEER0_ORGPT_CA=${PWD}/organizations/peerOrganizations/orgpt.demosk.org/tlsca/tlsca.orgpt.demosk.org-cert.pem
 export ORDERER_ADMIN_TLS_SIGN_CERT=${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.crt
 export ORDERER_ADMIN_TLS_PRIVATE_KEY=${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.key
 
@@ -26,9 +26,9 @@ setGlobals() {
   fi
   infoln "Using organization ${USING_ORG}"
   if [ $USING_ORG -eq 1 ]; then
-    export CORE_PEER_LOCALMSPID="Org1MSP"
-    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
-    export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.demosk.org/users/Admin@org1.demosk.org/msp
+    export CORE_PEER_LOCALMSPID="OrgptMSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORGPT_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/orgpt.demosk.org/users/Admin@orgpt.demosk.org/msp
     export CORE_PEER_ADDRESS=localhost:7051
 
   else
@@ -51,7 +51,7 @@ setGlobalsCLI() {
     USING_ORG="${OVERRIDE_ORG}"
   fi
   if [ $USING_ORG -eq 1 ]; then
-    export CORE_PEER_ADDRESS=peer0.org1.demosk.org:7051
+    export CORE_PEER_ADDRESS=peer0.orgpt.demosk.org:7051
   else
     errorln "ORG Unknown"
   fi
