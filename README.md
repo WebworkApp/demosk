@@ -42,7 +42,7 @@ Setup Windows development environement:
 - https://hyperledger-fabric.readthedocs.io/en/latest/install.html
 
 4. Clone AllDays:
-- https://github.com/WebworkApp/AllDays.git
+- https://github.com/WebworkApp/demosk.git
 
 
 Setup AllDays:
