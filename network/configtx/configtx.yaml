@@ -42,7 +42,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.admin')"
 
         OrdererEndpoints:
-            - orderer.demosk.org:7050
+            - ordererpt.demosk.org:7050
 
     - &orgpt
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -181,14 +181,14 @@ Orderer: &OrdererDefaults
     # as TLS validation.  The preferred way to specify orderer addresses is now
     # to include the OrdererEndpoints item in your org definition
     Addresses:
-        - orderer.demosk.org:7050
+        - ordererpt.demosk.org:7050
 
     EtcdRaft:
         Consenters:
-        - Host: orderer.demosk.org
+        - Host: ordererpt.demosk.org
           Port: 7050
-          ClientTLSCert: ../organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.crt
-          ServerTLSCert: ../organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.crt
+          ClientTLSCert: ../organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/server.crt
+          ServerTLSCert: ../organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/server.crt
 
     # Batch Timeout: The amount of time to wait before creating a batch
     BatchTimeout: 2s

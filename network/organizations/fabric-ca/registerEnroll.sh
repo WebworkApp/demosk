@@ -133,24 +133,24 @@ function createOrderer() {
 
   infoln "Generating the orderer msp"
   set -x
-  fabric-ca-client enroll -u https://orderer:ordererpw@localhost:9054 --caname ca-orderer -M "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/msp" --csr.hosts orderer.demosk.org --csr.hosts localhost --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg/ca-cert.pem"
+  fabric-ca-client enroll -u https://orderer:ordererpw@localhost:9054 --caname ca-orderer -M "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/msp" --csr.hosts ordererpt.demosk.org --csr.hosts localhost --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg/ca-cert.pem"
   { set +x; } 2>/dev/null
 
-  cp "${PWD}/organizations/ordererOrganizations/demosk.org/msp/config.yaml" "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/msp/config.yaml"
+  cp "${PWD}/organizations/ordererOrganizations/demosk.org/msp/config.yaml" "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/msp/config.yaml"
 
   infoln "Generating the orderer-tls certificates"
   set -x
-  fabric-ca-client enroll -u https://orderer:ordererpw@localhost:9054 --caname ca-orderer -M "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls" --enrollment.profile tls --csr.hosts orderer.demosk.org --csr.hosts localhost --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg/ca-cert.pem"
+  fabric-ca-client enroll -u https://orderer:ordererpw@localhost:9054 --caname ca-orderer -M "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls" --enrollment.profile tls --csr.hosts ordererpt.demosk.org --csr.hosts localhost --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg/ca-cert.pem"
   { set +x; } 2>/dev/null
 
   # Copy the tls CA cert, server cert, server keystore to well known file names in the orderer's tls directory that are referenced by orderer startup config
-  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/ca.crt"
-  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/signcerts/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.crt"
-  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/keystore/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.key"
+  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/ca.crt"
+  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/signcerts/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/server.crt"
+  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/keystore/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/server.key"
 
   # Copy orderer org's CA cert to orderer's /msp/tlscacerts directory (for use in the orderer MSP definition)
-  mkdir -p "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/msp/tlscacerts"
-  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/msp/tlscacerts/tlsca.demosk.org-cert.pem"
+  mkdir -p "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/msp/tlscacerts"
+  cp "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/msp/tlscacerts/tlsca.demosk.org-cert.pem"
 
   infoln "Generating the admin msp"
   set -x

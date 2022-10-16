@@ -13,8 +13,8 @@
 export CORE_PEER_TLS_ENABLED=true
 export ORDERER_CA=${PWD}/organizations/ordererOrganizations/demosk.org/tlsca/tlsca.demosk.org-cert.pem
 export PEER0_ORGPT_CA=${PWD}/organizations/peerOrganizations/orgpt.demosk.org/tlsca/tlsca.orgpt.demosk.org-cert.pem
-export ORDERER_ADMIN_TLS_SIGN_CERT=${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.crt
-export ORDERER_ADMIN_TLS_PRIVATE_KEY=${PWD}/organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/server.key
+export ORDERER_ADMIN_TLS_SIGN_CERT=${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/server.crt
+export ORDERER_ADMIN_TLS_PRIVATE_KEY=${PWD}/organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/server.key
 
 # Set environment variables for the peer org
 setGlobals() {

@@ -31,7 +31,7 @@ services:
     networks:
       - test
 
-  ca_orderer:
+  ca_ordererpt:
     image: hyperledger/fabric-ca:latest
     labels:
       service: hyperledger-fabric
@@ -47,6 +47,6 @@ services:
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ../organizations/fabric-ca/ordererOrg:/etc/hyperledger/fabric-ca-server
-    container_name: ca_orderer
+    container_name: ca_ordererpt
     networks:
       - test

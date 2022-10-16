@@ -6,7 +6,7 @@
 version: '3.7'
 
 volumes:
-  orderer.demosk.org:
+  ordererpt.demosk.org:
   peer0.orgpt.demosk.org:
 
 networks:
@@ -15,8 +15,8 @@ networks:
 
 services:
 
-  orderer.demosk.org:
-    container_name: orderer.demosk.org
+  ordererpt.demosk.org:
+    container_name: ordererpt.demosk.org
     image: hyperledger/fabric-orderer:latest
     labels:
       service: hyperledger-fabric
@@ -42,13 +42,13 @@ services:
       - ORDERER_ADMIN_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_ADMIN_TLS_CLIENTROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_ADMIN_LISTENADDRESS=0.0.0.0:7053
-      - ORDERER_OPERATIONS_LISTENADDRESS=orderer.demosk.org:9443
+      - ORDERER_OPERATIONS_LISTENADDRESS=ordererpt.demosk.org:9443
     working_dir: /root
     command: orderer
     volumes:
-        - ../organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/msp:/var/hyperledger/orderer/msp
-        - ../organizations/ordererOrganizations/demosk.org/orderers/orderer.demosk.org/tls/:/var/hyperledger/orderer/tls
-        - orderer.demosk.org:/var/hyperledger/production/orderer
+        - ../organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/msp:/var/msp
+        - ../organizations/ordererOrganizations/demosk.org/orderers/ordererpt.demosk.org/tls/:/var/hyperledger/orderer/tls
+        - ordererpt.demosk.org:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
       - 7053:7053
