@@ -12,16 +12,16 @@ Hyperledger Fabric is an open-source enterprise-grade permissioned distributed l
 All pieces to build digital democracy are now available, is up to us to put it in place.
 Build today, vote tomorrow.
 
-Hyperledger Fabric:
+# Hyperledger Fabric:
 - https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html
 - https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html
 - https://hyperledger-fabric.readthedocs.io/en/latest/architecture.html
 
-Hyperledger Fabric Getting Started: 
+# Hyperledger Fabric Getting Started: 
 - https://hyperledger-fabric.readthedocs.io/en/latest/getting_started_run_fabric.html
 
 
-Setup Windows development environment:
+# Setup Windows development environment:
 1. Install:
 - VSCode: https://code.visualstudio.com/
 - GIT https://git-scm.com/download/win
